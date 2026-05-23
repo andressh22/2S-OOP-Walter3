@@ -269,24 +269,31 @@ private double calcularDesviacionEstandar(double nota1, double nota2, double not
 
 
     
+   
     
-/*Actions*/    
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-    }//GEN-LAST:event_btnLimpiarActionPerformed
-
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         double nota1=Double.parseDouble(inputNota1.getText());
         double nota2=Double.parseDouble(inputNota2.getText());
         double nota3=Double.parseDouble(inputNota3.getText());
         double nota4=Double.parseDouble(inputNota4.getText());
         double nota5=Double.parseDouble(inputNota5.getText());
-        java.awt.EventQueue.invokeLater(() -> new VentanaResultados().setVisible(true));
         this.resultadoPromedio=calcularPromedio(nota1, nota2, nota3, nota4, nota5);
         this.desviacionEstandar=Math.round(calcularDesviacionEstandar(nota1, nota2, nota3, nota4, nota5)*1000.0)/1000.0;
         this.notaMayor=calcularNotaMayor(nota1, nota2, nota3, nota4, nota5);
         this.notaMenor=calcularNotaMenor(nota1, nota2, nota3, nota4, nota5);
+        java.awt.EventQueue.invokeLater(() -> new VentanaResultados().setVisible(true));
+
 
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+       inputNota1.setText("0");
+       inputNota2.setText("0");
+       inputNota3.setText("0");
+       inputNota4.setText("0");
+       inputNota5.setText("0");
+     
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
             
 /*Get data---------------------------*/
