@@ -1,15 +1,30 @@
 
 package InterfazGrafica;
 import java.awt.Color;
+import InterfazGrafica.VentanaResultados;
+import Notas.Notas;
+
 
 public class VentanaPrincipal extends javax.swing.JFrame {
-    /*Class variables for sharing*/
-    private static double resultadoPromedio;
-    private static double desviacionEstandar;
-    private static double notaMayor;
-    private static double notaMenor;
-
     
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
+
+    public static void main(String args[]) {
+
+
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+   
+    }    
     
     public VentanaPrincipal() {
         initComponents();
@@ -22,10 +37,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
 
-    
-    
-
-/*Design and window contain-------------------------------------------------*/
+    /*Design and window contain-------------------------------------------------*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -239,48 +251,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-;    
-/*Methods*/
-private double calcularPromedio(double nota1, double nota2, double nota3, double nota4, double nota5){
-    double promedio=(nota1+nota2+nota3+nota4+nota5)/5;
-    return promedio;
-}
-
-private double calcularNotaMayor(double nota1, double nota2, double nota3, double nota4, double nota5){
-    double notaMayor=Math.max(Math.max(nota1, nota2),Math.max(Math.max(nota3, nota4),nota5));
-    return notaMayor;
-}
-
-private double calcularNotaMenor(double nota1, double nota2, double nota3, double nota4, double nota5){
-    double notaMenor=Math.min(Math.min(nota1, nota2),Math.min(Math.min(nota3, nota4),nota5));
-    return notaMenor;
-}
-
-private double calcularDesviacionEstandar(double nota1, double nota2, double nota3, double nota4, double nota5){
-    resultadoPromedio=getResultadoPromedio();
-    double suma=Math.pow((nota1-resultadoPromedio),2)+
-            Math.pow((nota2-resultadoPromedio),2)+
-            Math.pow((nota3-resultadoPromedio),2)+
-            Math.pow((nota4-resultadoPromedio),2)+
-            Math.pow((nota5-resultadoPromedio),2);
-    double desviacionEstandar=Math.sqrt(suma/5);
-    return desviacionEstandar;
-}
-
-
-    
+;        
    
     
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        double nota1=Double.parseDouble(inputNota1.getText());
-        double nota2=Double.parseDouble(inputNota2.getText());
-        double nota3=Double.parseDouble(inputNota3.getText());
-        double nota4=Double.parseDouble(inputNota4.getText());
-        double nota5=Double.parseDouble(inputNota5.getText());
-        this.resultadoPromedio=calcularPromedio(nota1, nota2, nota3, nota4, nota5);
-        this.desviacionEstandar=Math.round(calcularDesviacionEstandar(nota1, nota2, nota3, nota4, nota5)*1000.0)/1000.0;
-        this.notaMayor=calcularNotaMayor(nota1, nota2, nota3, nota4, nota5);
-        this.notaMenor=calcularNotaMenor(nota1, nota2, nota3, nota4, nota5);
+
         java.awt.EventQueue.invokeLater(() -> new VentanaResultados().setVisible(true));
 
 
@@ -296,36 +271,16 @@ private double calcularDesviacionEstandar(double nota1, double nota2, double not
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
             
-/*Get data---------------------------*/
-
-    public static double getResultadoPromedio(){
-        return resultadoPromedio;
-    }
-
-    public static double getDesviacionEstandar() {
-        return desviacionEstandar;
-    }
-
-    public static double getNotaMayor() {
-        return notaMayor;
-    }
-
-    public static double getNotaMenor() {
-        return notaMenor;
-    }
-
-    
-    
-    
+ 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JTextField inputNota1;
-    private javax.swing.JTextField inputNota2;
-    private javax.swing.JTextField inputNota3;
-    private javax.swing.JTextField inputNota4;
-    private javax.swing.JTextField inputNota5;
+    public static javax.swing.JTextField inputNota1;
+    public static javax.swing.JTextField inputNota2;
+    public static javax.swing.JTextField inputNota3;
+    public static javax.swing.JTextField inputNota4;
+    public static javax.swing.JTextField inputNota5;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

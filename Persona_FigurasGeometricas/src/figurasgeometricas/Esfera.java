@@ -13,7 +13,7 @@ public class Esfera extends FigurasGeometricas {
     
     @Override
     public double calcularVolumen(){
-        double volumen=(4/3)*Math.PI*Math.pow(radio,3);
+    double volumen = (4.0/3.0)*Math.PI*Math.pow(radio, 3);
         return volumen;
     } 
     @Override

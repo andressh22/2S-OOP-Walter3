@@ -1,12 +1,30 @@
 
 package InterfazGrafica;
 
+import Notas.Notas;
+import InterfazGrafica.VentanaPrincipal;
 import java.awt.Color;
 
 
 public class VentanaResultados extends javax.swing.JFrame {
     
+        private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaResultados.class.getName());
+    
+        public static void main(String args[]) {
 
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+                logger.log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+        
+        
     public VentanaResultados() {
         initComponents();
         getContentPane().setBackground(new Color(2, 49, 79));
@@ -14,6 +32,7 @@ public class VentanaResultados extends javax.swing.JFrame {
         
     }
 
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -87,16 +106,16 @@ public class VentanaResultados extends javax.swing.JFrame {
         jLabel5.setText("Nota menor  ");
 
         lblResultadoPromedio.setFont(new java.awt.Font("Caladea", 1, 14)); // NOI18N
-        lblResultadoPromedio.setText(VentanaPrincipal.getResultadoPromedio()+"");
+        lblResultadoPromedio.setText(String.format("%.2f", estudiante.calcularPromedio()));
 
         lblResultadoNotaMayor.setFont(new java.awt.Font("Caladea", 1, 14)); // NOI18N
-        lblResultadoNotaMayor.setText(VentanaPrincipal.getNotaMayor()+"");
+        lblResultadoNotaMayor.setText(String.format("%.2f",estudiante.calcularNotaMayor()));
 
         lblDesviacionEstandarResultado.setFont(new java.awt.Font("Caladea", 1, 14)); // NOI18N
-        lblDesviacionEstandarResultado.setText("≈ "+VentanaPrincipal.getDesviacionEstandar()+"");
+        lblDesviacionEstandarResultado.setText(String.format("≈ %.2f", estudiante.calcularDesviacionEstandar()));
 
         lblNotaMenorResultado.setFont(new java.awt.Font("Caladea", 1, 14)); // NOI18N
-        lblNotaMenorResultado.setText(VentanaPrincipal.getNotaMenor()+"");
+        lblNotaMenorResultado.setText(String.format("%.2f",estudiante.calcularNotaMenor()));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,7 +191,19 @@ public class VentanaResultados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
+double nota1=Double.parseDouble(VentanaPrincipal.inputNota1.getText());
+double nota2=Double.parseDouble(VentanaPrincipal.inputNota2.getText());
+double nota3=Double.parseDouble(VentanaPrincipal.inputNota3.getText());
+double nota4=Double.parseDouble(VentanaPrincipal.inputNota4.getText());
+double nota5=Double.parseDouble(VentanaPrincipal.inputNota5.getText());
+Notas estudiante=new Notas(nota1, nota2, nota3, nota4, nota5);
 
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

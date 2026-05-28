@@ -321,7 +321,7 @@ public class VentanaPiramide extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         panelResultados.setVisible(true);
-        this.setSize(334,360);
+        this.setSize(334,365);
         double base=Double.parseDouble(inputBase.getText());
         double altura=Double.parseDouble(inputAltura.getText());
         double apotema=Double.parseDouble(inputApotema.getText());
